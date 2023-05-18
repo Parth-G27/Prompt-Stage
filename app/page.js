@@ -1,5 +1,7 @@
 import Image from 'next/image'
 
+// This is what we see at Localhost:3000/
+
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
