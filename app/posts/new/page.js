@@ -4,7 +4,7 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div>New post can be seen here</div>
+    <div>New post can be seen here, on this</div>
   )
 }
 
