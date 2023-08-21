@@ -1,4 +1,5 @@
 import "@styles/globals.css";
+import Nav from "@components/Nav";
 // This will import the Tailwaind Css in the whole application 
 // import { children } from 'react';
 
@@ -9,12 +10,13 @@ export const metadata = {
 
 const Rootlayout = ({children}) => {
   return (
-    <html lang="en">
+    <html>
         <body>
             <div className='main'>
                 <div className='gradient'/>
 
                 <main className='app'>
+                    <Nav/>
                     {children}
                 </main>
 

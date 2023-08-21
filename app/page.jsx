@@ -1,5 +1,5 @@
 // import React from 'react'
-
+import Feed from "@components/feed";
 const Home = () => {
   return (
     <section className="">
@@ -13,6 +13,9 @@ const Home = () => {
         Prompt Stage is an open-source community platform for AI enthusiasts to Explore,
          Share and Create innovative & artistic prompts. 
       </p>
+
+      <Feed/>
+
       
     </section>
   )
