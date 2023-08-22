@@ -19,7 +19,7 @@ const Nav = () => {
     setProviders();
   },[])
   return (
-    <nav className='flex-between w-full pt-3 mb-15'>
+    <nav className='flex-between w-full pt-11 mb-20'>
         <Link href="/" className='flex gap-3'>
        
           <Image src="/assets/images/cuckoo.png"
