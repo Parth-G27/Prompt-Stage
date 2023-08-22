@@ -7,7 +7,7 @@ import { PiBirdFill } from 'react-icons/Pi';
 
 import {signIn, signOut, useSession, getProviders} from 'next-auth/react';
 const Nav = () => {
-  const userLoggedIn = true ;
+  const userLoggedIn = false ;
   const [providers, setProviders] = useState(null);
   const [toggleDropDown, setToggleDropDown] = useState(false)
   useEffect(()=>{
