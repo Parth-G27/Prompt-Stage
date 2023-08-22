@@ -3,21 +3,24 @@ import React from 'react';
 import Link from "next/link";
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import { PiBirdFill } from 'react-icons/Pi';
+//import { PiBirdFill } from 'react-icons/Pi';
 
-import {signIn, signOut, useSession, getProviders} from 'next-auth/react';
+import { signIn, signOut, useSession, getProviders } from "next-auth/react";
+
 const Nav = () => {
-  const userLoggedIn = false ;
+  //const userLoggedIn = true ;
+  
+  const { data: session } = useSession();
   const [providers, setProviders] = useState(null);
   const [toggleDropDown, setToggleDropDown] = useState(false)
-  useEffect(()=>{
-    const setProviders = async () => {
-      const response = await getProviders();
+  
+  useEffect(() => {
+    (async () => {
+      const res = await getProviders();
+      setProviders(res);
+    })();
+  }, []);
 
-      setProviders(response);
-    }
-    setProviders();
-  },[])
   return (
     <nav className='flex-between w-full pt-11 mb-20'>
         <Link href="/" className='flex gap-3'>
@@ -31,9 +34,11 @@ const Nav = () => {
           {/* <PiBirdFill className='icom-class w-24 h-24' /> */}
         </Link>
 
+        {alert("Esss : "+session?.user)}
+
         {/* Desktop */}
         <div className='sm:flex hidden'>
-          {userLoggedIn ? 
+          {session?.user ? 
           ( <div className='flex gap-3 md:gap-5'>
             <Link href="create-prompt" className='black_btn'>
             Create Post
@@ -54,7 +59,7 @@ const Nav = () => {
             </div>
              ) :(
             <>
-            {providers &&
+            {/* {providers &&
               Object.values(providers).map((provider) => (
               <button type="button" key={provider.name}
               onClick={()=> signIn(provider.id)}
@@ -63,14 +68,19 @@ const Nav = () => {
                 Sign In
               </button>
             ))
-            }
+            } */}
+            <button type="button" 
+              className='black_btn'
+              >
+                Sign In
+              </button>
             </>)
           }
         </div>
 
         {/*Mobile */}
         <div className='sm:hidden flex relative'> 
-        {userLoggedIn ?(
+        {session?.user ?(
           <div className='flex'>
             <Image src="/assets/images/logo.svg"
              width={37}
