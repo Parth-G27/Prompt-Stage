@@ -14,12 +14,14 @@ const Nav = () => {
   const [providers, setProviders] = useState(null);
   const [toggleDropDown, setToggleDropDown] = useState(false)
   
-  useEffect(() => {
-    (async () => {
-      const res = await getProviders();
-      setProviders(res);
-    })();
-  }, []);
+  useEffect(()=>{
+    const setUpProviders = async () => {
+      const response = await getProviders();
+
+      setProviders(response);
+    }
+    setUpProviders();
+  },[])
 
   return (
     <nav className='flex-between w-full pt-11 mb-20'>
@@ -34,7 +36,7 @@ const Nav = () => {
           {/* <PiBirdFill className='icom-class w-24 h-24' /> */}
         </Link>
 
-        {alert("Esss : "+session?.user)}
+        {alert("Session : "+session?.user)}
 
         {/* Desktop */}
         <div className='sm:flex hidden'>
@@ -59,21 +61,19 @@ const Nav = () => {
             </div>
              ) :(
             <>
-            {/* {providers &&
+            {providers &&
               Object.values(providers).map((provider) => (
-              <button type="button" key={provider.name}
-              onClick={()=> signIn(provider.id)}
-              className='black_btn'
-              >
-                Sign In
-              </button>
-            ))
-            } */}
-            <button type="button" 
-              className='black_btn'
-              >
-                Sign In
-              </button>
+                <button
+                  type='button'
+                  key={provider.name}
+                  onClick={() => {
+                    signIn(provider.id);
+                  }}
+                  className='black_btn'
+                >
+                  Sign in
+                </button>
+              ))}
             </>)
           }
         </div>
@@ -117,14 +117,17 @@ const Nav = () => {
           <>
             {providers &&
               Object.values(providers).map((provider) => (
-              <button type="button" key={provider.name}
-              onClick={()=> signIn(provider.id)}
-              className='black_btn'
-              >
-                Sign In
-              </button>
-            ))
-            }
+                <button
+                  type='button'
+                  key={provider.name}
+                  onClick={() => {
+                    signIn(provider.id);
+                  }}
+                  className='black_btn'
+                >
+                  Sign in
+                </button>
+              ))}
             </>
         )}
         </div>
