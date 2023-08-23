@@ -36,7 +36,7 @@ const Nav = () => {
           {/* <PiBirdFill className='icom-class w-24 h-24' /> */}
         </Link>
 
-        {alert("Session : "+session?.user)}
+        {/* {alert("providers : "+providers)} */}
 
         {/* Desktop */}
         <div className='sm:flex hidden'>
@@ -50,7 +50,7 @@ const Nav = () => {
             </button>
 
             <Link href='profile'>
-             <Image src="/assets/images/logo.svg"
+             <Image src={session?.user.image}
              width={37}
              height={37}
              className='rounded-full'
@@ -82,7 +82,7 @@ const Nav = () => {
         <div className='sm:hidden flex relative'> 
         {session?.user ?(
           <div className='flex'>
-            <Image src="/assets/images/logo.svg"
+            <Image src={session?.user.image}
              width={37}
              height={37}
              className='rounded-full'
