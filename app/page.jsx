@@ -11,7 +11,7 @@ const Home = () => {
       </h1>
       <p className="text-center text-3xl font-medium py-5">
         Prompt Stage is an open-source community platform for AI enthusiasts to Explore,
-         Share and Create innovative & artistic prompts. 
+         Share and Create innovative & artistic prompts .  
       </p>
 
       <Feed/>

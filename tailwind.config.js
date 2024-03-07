@@ -10,7 +10,9 @@ module.exports = {
       fontFamily: {
         satoshi: ['Satoshi', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
-        cabin: ['Cabin','sans-serif']
+        cabin: ['Cabin','sans-serif'],
+        space : ['space-grotesk'],
+        geologica : ['geologica'],
         
       },
       colors: {

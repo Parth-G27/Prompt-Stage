@@ -77,11 +77,11 @@ const Nav = () => {
           }
         </div>
 
-        {/*Mobile */}
+        {/*Mobile */} 
         <div className='sm:hidden flex relative'> 
         {session?.user ?(
           <div className='flex'>
-            <Image src={session?.user.image}
+            <Image  src={session?.user.image}
              width={37}
              height={37}
              className='rounded-full'
